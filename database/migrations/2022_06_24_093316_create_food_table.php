@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('diccount');
-            $table->json('img');
+            $table->json('img')->nullable();
             $table->foreignId('img')->references('id')->on('img')->onDelete('cascade');
             $table->json('groups');
             $table->enum('status',['active','deactive']);

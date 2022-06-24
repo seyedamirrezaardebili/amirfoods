@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('img', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement()->primary();
-            $table->integer('address');
+            $table->string('address');
             $table->enum('type',['user','food','rest','restuser']);
             $table->enum('status',['active','deactive']);
             $table->softDeletes();

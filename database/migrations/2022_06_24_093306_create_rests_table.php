@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('zipcode')->nullable();
-            $table->json('img');
+            $table->json('img')->nullable();
             $table->foreignId('img')->references('id')->on('img')->onDelete('cascade');
             $table->string('city');
             $table->json('worktime');
