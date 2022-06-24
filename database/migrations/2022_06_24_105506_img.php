@@ -7,23 +7,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('food', function (Blueprint $table) {
+        Schema::create('img', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement()->primary();
-            $table->dropForeignIdFor(rests::class);
-            $table->string('name');
-            $table->integer('price');
-            $table->integer('diccount');
-            $table->json('img');
-            $table->foreignId('img')->references('id')->on('img')->onDelete('cascade');
-            $table->json('groups');
+            $table->integer('address');
+            $table->enum('type',['user','food','rest','restuser']);
             $table->enum('status',['active','deactive']);
+            $table->softDeletes();
             $table->timestamps();
+
         });
     }
 
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('food');
+        Schema::dropIfExists('img');
     }
 };

@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('zipcode')->nullable();
+            $table->json('img');
+            $table->foreignId('img')->references('id')->on('img')->onDelete('cascade');
             $table->string('city');
             $table->json('worktime');
             $table->enum('status',['active','deactive','block','close','open']);

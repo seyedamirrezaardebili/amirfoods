@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->text('address');
             $table->enum('status',['active','deactive','block']);
+            $table->json('img');
+            $table->foreignId('img')->references('id')->on('img')->onDelete('cascade');
             $table->string('password');
             $table->string('zipecode');
             $table->string('idcard');
